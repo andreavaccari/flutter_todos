@@ -28,7 +28,7 @@ class ToggleButton extends StatelessWidget {
             button = IconButton(
               onPressed: () {
                 BlocProvider.of<FilteredTodosBloc>(context)
-                    .add(ToggleCurrentTodo());
+                    .add(ActiveTodoToggled());
               },
               icon: activeTodo.complete
                   ? Icon(Icons.check_box)

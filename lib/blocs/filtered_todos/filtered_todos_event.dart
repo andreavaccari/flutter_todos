@@ -44,4 +44,4 @@ class ActiveTodoChanged extends FilteredTodosEvent {
   String toString() => 'ActiveTodoChanged { todoId: $todoId }';
 }
 
-class ToggleCurrentTodo extends FilteredTodosEvent {}
+class ActiveTodoToggled extends FilteredTodosEvent {}

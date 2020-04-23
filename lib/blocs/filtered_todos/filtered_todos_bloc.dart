@@ -40,8 +40,8 @@ class FilteredTodosBloc extends Bloc<FilteredTodosEvent, FilteredTodosState> {
       yield* _mapFilterUpdatedToState(event);
     } else if (event is ActiveTodoChanged) {
       yield* _mapActiveTodoChangedToState(event);
-    } else if (event is ToggleCurrentTodo) {
-      yield* _mapToggleCurrentTodoToState();
+    } else if (event is ActiveTodoToggled) {
+      yield* _mapActiveTodoToggledToState();
     }
   }
 
@@ -94,7 +94,7 @@ class FilteredTodosBloc extends Bloc<FilteredTodosEvent, FilteredTodosState> {
     }
   }
 
-  Stream<FilteredTodosState> _mapToggleCurrentTodoToState() async* {
+  Stream<FilteredTodosState> _mapActiveTodoToggledToState() async* {
     if (todosBloc.state is TodosLoadSuccess) {
       final loadedState = state as FilteredTodosLoadSuccess;
       final activeTodo = loadedState.filteredTodos.firstWhere(
